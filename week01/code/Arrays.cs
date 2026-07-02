@@ -13,6 +13,17 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        // Create an array with the required length
+        double[] result = new double[length];
+
+        // Loop through each position in the array
+        for (int i = 0; i < length; i++)
+        {
+            // Multiply the number by the current position + 1
+            // Store the result in the array
+            result[i] = number * (i + 1);
+        }
+
         return []; // replace this return statement with your own
     }
 
@@ -29,5 +40,24 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // Create an array with the required length
+        // Find the position where the list should be split
+        int splitPoint = data.Count - amount;
+
+        // Create a list containing the values from the split point to the end
+        List<int> endPortion = data.GetRange(splitPoint, amount);
+
+        // Create a list containing the values from the beginning to the split point
+        List<int> beginningPortion = data.GetRange(0, splitPoint);
+
+        // Clear the original list so it can be rebuilt
+        data.Clear();
+
+        // Add the end portion first
+        data.AddRange(endPortion);
+
+        // Add the beginning portion after it
+        data.AddRange(beginningPortion);
     }
 }
